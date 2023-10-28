@@ -1,0 +1,44 @@
+<div class="product-page" style="padding: 20px; margin: 0 20px;">
+  <h1 class="product-title">Product List</h1>
+  <input
+    type="text"
+    [(ngModel)]="searchInput"
+    (input)="onSearch()"
+    placeholder="Search for products"
+    class="form-control"
+  />
+  <div class="pagination-options">
+    <label for="itemsPerPage">Items per page:</label>
+    <select id="itemsPerPage" [(ngModel)]="itemsPerPage" (ngModelChange)="onItemsPerPageChange($event)">
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+    </select>
+  </div>
+  <div *ngIf="filteredProducts.length > 0; else noResults">
+    <div *ngFor="let product of filteredProducts" class="product-item">
+      <div class="product-image-container">
+        <div class="product-images">
+          <img *ngFor="let imageUrl of product.mainImageUrl" [src]="imageUrl" alt="{{ product.name }}" class="product-image" />
+        </div>
+      </div>
+      <h2 class="product-name" (click)="showImages(product.id)">{{ product.name }}</h2>
+      <p class="product-description">{{ product.description }}</p>
+      <p class="product-price">Price: {{ product.price | currency }}</p>
+    </div>
+  </div>
+    
+  <ng-template #noResults>
+    <p>No products found.</p>
+  </ng-template>
+  <div class="pagination">
+    <button class="btn btn-primary" [disabled]="currentPage === 1" (click)="onPageChange(currentPage - 1)">Previous</button>
+    <span>Page {{ currentPage }}</span>
+    <button class="btn btn-primary" [disabled]="filteredProducts.length < itemsPerPage" (click)="onPageChange(currentPage + 1)">Next</button>
+  </div>
+
+  <div *ngIf="isPopupOpen" class="image-popup-overlay">
+  <app-image-popup [selectedProduct]="selectedProduct" (closePopup)="closePopup()"></app-image-popup>
+</div>
+</div>

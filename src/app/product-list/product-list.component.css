@@ -1,0 +1,68 @@
+
+
+
+/* .product-item {
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin: 0 10px 20px 10px; /* Adjust margin to create space between items */
+  /* width: calc(50% - 20px); Set width to 50% of the container width with margins included */
+  /* border: 1px solid #ccc; Add a border for separation */
+  /* display: inline-block; Allow items to display in-line */
+  /* box-sizing: border-box; Include padding and border in the width calculation */
+/* } */
+
+.product-item {
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin: 0 10px 20px 10px; /* Adjust margin to create space between items */
+  width: calc(30%); /* Set width to 50% of the container width with margins included */
+  border: 1px solid #ccc; /* Add a border for separation */
+  display: inline-block; /* Allow items to display in-line */
+  box-sizing: border-box; /* Include padding and border in the width calculation */
+}
+.product-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333; /* Dark gray or black */
+}
+.product-description {
+  font-size: 14px;
+  color: #6c757d; /* Warm gray */
+}
+
+.product-price {
+  font-size: 14px;
+  color: #e44d26; /* Reddish-orange */
+  font-weight: bold;
+}
+
+/* Default styles for product images */
+.product-image {
+  width: 150px; /* Set the default width */
+  height: 200px; /* Set the default height */
+  object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
+
+.mobile-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Media query for screens with a maximum width of 768px (typical for mobile devices) */
+@media (max-width: 768px) {
+  .product-image {
+    width: 100%; /* Set the image to 100% width for smaller screens */
+    height: auto; /* Allow the height to adjust proportionally */
+  }
+
+  .product-item {
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin: 0 10px 20px 10px; /* Adjust margin to create space between items */
+    border: 1px solid #ccc; /* Add a border for separation */
+    display: inline-block; /* Allow items to display in-line */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+    width: 90%;
+  }
+}

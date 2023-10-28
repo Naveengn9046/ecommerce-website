@@ -1,0 +1,9 @@
+<div class="image-popup-overlay">
+  <div class="image-popup">
+    <button class="close-button" (click)="onClosePopup()">X</button>
+    <h3>Images for {{ selectedProduct?.name }}</h3>
+    <div class="product-images">
+      <img *ngFor="let imageUrl of selectedProduct?.imageUrls" [src]="imageUrl" alt="{{ selectedProduct?.name }}" class="product-image" />
+    </div>
+  </div>
+</div>
