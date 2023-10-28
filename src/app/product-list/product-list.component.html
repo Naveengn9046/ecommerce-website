@@ -8,10 +8,10 @@
     class="form-control"
   />
   <div class="pagination-options">
-    <label for="itemsPerPage">Items per page:</label>
+    <label class="itemPerPageMargin" for="itemsPerPage">Items per page:</label>
     <select id="itemsPerPage" [(ngModel)]="itemsPerPage" (ngModelChange)="onItemsPerPageChange($event)">
-      <option value="10">10</option>
-      <option value="20">20</option>
+      <option value="12">12</option>
+      <option value="20">25</option>
       <option value="50">50</option>
       <option value="100">100</option>
     </select>
@@ -20,7 +20,9 @@
     <div *ngFor="let product of filteredProducts" class="product-item">
       <div class="product-image-container">
         <div class="product-images">
-          <img *ngFor="let imageUrl of product.mainImageUrl" [src]="imageUrl" alt="{{ product.name }}" class="product-image" />
+          <a (click)="showImages(product.id)">
+            <img *ngFor="let imageUrl of product.mainImageUrl" [src]="imageUrl" alt="{{ product.name }}" class="product-image" />
+          </a>
         </div>
       </div>
       <h2 class="product-name" (click)="showImages(product.id)">{{ product.name }}</h2>
@@ -28,14 +30,14 @@
       <p class="product-price">Price: {{ product.price | currency }}</p>
     </div>
   </div>
-    
+  
   <ng-template #noResults>
     <p>No products found.</p>
   </ng-template>
   <div class="pagination">
-    <button class="btn btn-primary" [disabled]="currentPage === 1" (click)="onPageChange(currentPage - 1)">Previous</button>
-    <span>Page {{ currentPage }}</span>
-    <button class="btn btn-primary" [disabled]="filteredProducts.length < itemsPerPage" (click)="onPageChange(currentPage + 1)">Next</button>
+    <button class="btn btn-primary itemPerPageMargin" [disabled]="currentPage === 1" (click)="onPageChange(currentPage - 1)">Previous</button>
+    <span class="itemPerPageMargin">Page {{ currentPage }}</span>
+    <button class="btn btn-primary itemPerPageMargin" [disabled]="filteredProducts.length < itemsPerPage" (click)="onPageChange(currentPage + 1)">Next</button>
   </div>
 
   <div *ngIf="isPopupOpen" class="image-popup-overlay">

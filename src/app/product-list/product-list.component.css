@@ -66,3 +66,7 @@
     width: 90%;
   }
 }
+
+.itemPerPageMargin {
+  margin: 1rem;
+}
