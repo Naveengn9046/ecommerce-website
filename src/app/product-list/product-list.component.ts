@@ -16,6 +16,9 @@ export class ProductListComponent implements OnInit {
   selectedProduct: any | null = null;
   isPopupOpen = false;
   escapeListener: any;
+  showOptions: boolean = false;
+
+
   constructor(private productService: ProductService) {}
 
   ngOnInit() {
@@ -65,4 +68,20 @@ export class ProductListComponent implements OnInit {
   ngOnDestroy() {
     document.removeEventListener('keydown', this.escapeListener);
   }
+
+  onCategoryClick(category: string) {
+    if (category === 'kurta') {
+      // Filter products related to Kurta
+      this.filteredProducts = this.products.filter(product => product.category === 'Kurta');
+    }
+    if (category === 'jumpsuit') {
+      // Filter products related to Kurta
+      this.filteredProducts = this.products.filter(product => product.category === 'jumpsuit');
+    }
+    if (category === 'saree') {
+      // Filter products related to Kurta
+      this.filteredProducts = this.products.filter(product => product.category === 'saree');
+    }
+  }
+  
 }

@@ -34,6 +34,7 @@
   font-size: 14px;
   color: #e44d26; /* Reddish-orange */
   font-weight: bold;
+  padding-top: 1rem;
 }
 
 /* Default styles for product images */
@@ -69,4 +70,100 @@
 
 .itemPerPageMargin {
   margin: 1rem;
+}
+.size-circle {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 0.2px solid #333; /* Adjust the border color */
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  margin-right: 5px;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: gainsboro; /* Add a background color */
+  color: #333; /* Adjust the text color */
+}
+
+
+
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.category-options {
+  text-align: left;
+  margin-top: 2rem;
+  margin-left: 3rem;
+  margin-bottom: 1rem;
+}
+
+.category-container {
+  display: inline-block;
+  position: relative;
+}
+
+.category-name {
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.category-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  background-color: #555;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.category-container:hover .category-dropdown {
+  display: block;
+}
+
+.category-option {
+  font-size: 18px;
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  margin: 5px 0;
+}
+
+.category-option:hover {
+  font-weight: bold !important;
+}
+
+.logo {
+  width: 100px; /* Set the width of your logo */
+  height: 100px; /* Set the height of your logo */
+  /* Add any other styles you want for your logo */
+}
+
+.header {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+}
+
+.logo-container {
+  margin-right: 20px; /* Adjust the margin as needed to control the space between the logo and text */
+  margin-left: 40%;
+}
+
+@media (max-width: 768px) {
+  .logo-container {
+    margin-right: 20px; /* Adjust the margin as needed to control the space between the logo and text */
+    margin-left: 15%;
+  }
 }

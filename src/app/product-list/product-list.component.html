@@ -1,5 +1,25 @@
+<div class="header">
+  <div class="logo-container">
+    <img src="./../../assets/logo.png" alt="Annavaran Logo" class="logo">
+  </div>
+  <h1>Annavaran</h1>
+</div>
+
+
+<div class="category-options">
+  <div class="category-container" (mouseenter)="showOptions = true" (mouseleave)="showOptions = false">
+    <span class="category-name">Women</span>
+    <div class="category-dropdown" *ngIf="showOptions">
+      <a (click)="onCategoryClick('kurta')" class="category-option">Kurta</a>
+      <a (click)="onCategoryClick('jumpsuit')" class="category-option">Jumpsuit</a>
+      <a (click)="onCategoryClick('saree')" class="category-option">Saree</a>
+    </div>
+  </div>
+</div>
+
+
+
 <div class="product-page" style="padding: 20px; margin: 0 20px;">
-  <h1 class="product-title">Product List</h1>
   <input
     type="text"
     [(ngModel)]="searchInput"
@@ -27,6 +47,10 @@
       </div>
       <h2 class="product-name" (click)="showImages(product.id)">{{ product.name }}</h2>
       <p class="product-description">{{ product.description }}</p>
+        <div class="sizes">
+          Sizes:
+          <span *ngFor="let size of product.sizes" class="size-circle">{{ size }}</span>
+        </div>
       <p class="product-price">Price: {{ product.price | currency }}</p>
     </div>
   </div>
